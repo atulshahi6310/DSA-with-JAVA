@@ -6,12 +6,12 @@ class Solution {
                 
                 arr[lp++] = i;
                 arr[lp++] = -i;
-                
+            } 
                 if (n%2 == 1){
                     arr[lp] =0;
                 }
                 
-            }
+            
         return arr ;
     }
 }
