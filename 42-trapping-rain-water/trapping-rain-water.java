@@ -1,27 +1,38 @@
 class Solution {
     public int trap(int[] height) {
-        int lp = 0, rp = height.length - 1;
-        int leftMax = 0, rightMax = 0;
-        int trapped_water = 0;
+        int n = height.length;
+        //edge cases 
+        // this is the case where only two pillers we can not stoore the water b/w two piller
+        if(n<2){
+            return 0;
+        }
+       // handleing the assendingg and decending order  __ because the left max and right max boundary can handle the case  of the assending and the dessending order case 
 
-        while (lp < rp) {
-            if (height[lp] < height[rp]) {
-                if (height[lp] >= leftMax) {
-                    leftMax = height[lp];
-                } else {
-                    trapped_water += leftMax - height[lp];
-                }
-                lp++;
-            } else {
-                if (height[rp] >= rightMax) {
-                    rightMax = height[rp];
-                } else {
-                    trapped_water += rightMax - height[rp];
-                }
-                rp--;
-            }
+        //calculate the left most boundeary 
+        
+        int left_boundary[] = new int[n];
+         left_boundary[0] = height[0];
+        for(int i=1;i<n;i++){
+            left_boundary[i] =Math.max(left_boundary[i-1], height[i]);
+        }
+        //calculate the rightmost boundary 
+         
+        int right_boundary[] = new int[n];
+        right_boundary[n-1] = height[n-1];
+        for(int i=n-2;i>=0;i--){
+           right_boundary[i] =  Math.max(right_boundary[i+1], height[i]);
+           
         }
 
-        return trapped_water;
+        int traped_water =0;
+        // formula for the traped water is : trapped_water = (water_height - bar_height)*1;
+        for(int i=0;i<n;i++){
+            int water_height = Math.min(left_boundary[i],right_boundary[i]);
+            int temp_store = water_height-height[i];
+            if(temp_store>0){
+                traped_water += temp_store;
+            }
+        }
+        return traped_water;
     }
 }
