@@ -7,7 +7,8 @@ class Solution {
 
         while(i<n && s.charAt(i) == ' '){
             i++;
-        }
+        }// trime the spaces till you got your fiesst word
+        
         while(i<n){
             if(s.charAt(i) !=' ' && (i==0 || s.charAt(i-1) ==' ')){
                 count++;
