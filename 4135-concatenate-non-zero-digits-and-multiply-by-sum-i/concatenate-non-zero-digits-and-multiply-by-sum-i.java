@@ -1,5 +1,27 @@
 class Solution {
     public long sumAndMultiply(int n) {
+        if (n == 0) return 0;
+        
+        int sum = 0;
+        long number = 0;
+        long place = 1;
+        int temp = n;
+        
+        while (temp > 0) {
+            int digit = temp % 10;
+            if (digit != 0) {
+                sum += digit;
+                number += (long) digit * place;
+                place *= 10;
+            }
+            temp /= 10;
+        }
+        
+        return number * sum;
+    }
+}
+/*class Solution {
+    public long sumAndMultiply(int n) {
         String str = Integer.toString(n);
         int sum =0;
         StringBuilder sb = new StringBuilder();
@@ -16,4 +38,4 @@ class Solution {
         long ans = number *sum;
         return ans;
     }
-}
+}*/
