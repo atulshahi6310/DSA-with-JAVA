@@ -2,7 +2,9 @@ class Solution {
     public boolean canJump(int[] nums) {
       int crr_pos =0;
       for(int i=0;i<nums.length;i++){
-        if(crr_pos <i) return false;
+        if(crr_pos <i){
+          return false;  
+        } 
         crr_pos = Math.max(crr_pos,i+nums[i]);
       }
       return true;
