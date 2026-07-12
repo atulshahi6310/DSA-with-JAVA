@@ -4,7 +4,6 @@ class Solution {
       for(int i=0;i<nums.length;i++){
         if(crr_pos <i) return false;
         crr_pos = Math.max(crr_pos,i+nums[i]);
-
       }
       return true;
         
