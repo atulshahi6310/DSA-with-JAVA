@@ -1,16 +1,24 @@
 class Solution {
-    public int maxProduct(int n) {
-        int temp = n;
-        int product =1;
-        ArrayList<Integer> l = new ArrayList<>();
-        while(temp !=0){
+    static int max(int temp){
+        int max1 =0,max2 =0;
+         while(temp !=0){
             int digit = temp %10;
-            l.add(digit);
+            if(digit >=max1){
+                max2 = max1;
+                max1 = digit;
+            }else if(digit<max1 && digit>max2){
+                max2 = digit;
+            }
             temp =temp /10;
         }
-        Collections.sort(l);
-        int length = l.size();
-        product = l.get(length-1) * l.get(length-2);
+        int product = max1 *max2;
         return product;
+        
+    }
+    public int maxProduct(int n) {
+        int temp = n;
+        int result = max(temp);
+        return result;
     }
 }
+
