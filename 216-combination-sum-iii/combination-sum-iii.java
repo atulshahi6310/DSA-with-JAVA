@@ -6,7 +6,8 @@ class Solution {
             return;
         }
         if (count == k && target == 0) {
-            // we are able to make the target
+            // we are able to make the target and add to the list 
+
             ans.add(new ArrayList<>(output));
             return;
         }
