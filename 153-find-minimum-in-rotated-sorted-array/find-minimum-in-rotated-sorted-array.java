@@ -6,8 +6,8 @@ class Solution {
         while(s<=e){
             int mid = s +(e -s)/2;
             if(nums[mid]>nums[n-1]){
-                s = mid+1;
                 ans = mid;
+                s = mid+1;
             }else{
                 
                 e = mid -1;
