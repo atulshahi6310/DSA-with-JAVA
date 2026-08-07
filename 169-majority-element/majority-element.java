@@ -13,6 +13,13 @@ class Solution {
                 count-=1;
             }
         }
-        return candinate;
+        int actual =0;
+        for(int n1 :nums) {
+            if(candinate == n1){
+                actual++;
+            }
+        }
+        if(actual >=nums.length/2) return candinate;
+        return -1;
     }
 }
