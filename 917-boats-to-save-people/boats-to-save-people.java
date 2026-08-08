@@ -6,13 +6,15 @@ class Solution {
         int boat_count =0;
         Arrays.sort(people);
         while(lp<=rp){
-            if(people[lp]+people[rp] <=limit){
-                rp--;
+            if(people[lp]+people[rp] <=limit){ /// calculate the sun of the  people  weights 
                 lp++;
-            }else{
+                rp--;
+            }
+            else{
                 rp--;
             }
             boat_count++;
+             
         }
         return boat_count;
     }
