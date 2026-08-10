@@ -14,7 +14,7 @@ class Solution {
        
         long sum =0;
         for(int i =0;i<n;i++){
-            sum += piles[i];
+            sum = Math.max(sum ,piles[i]);
         }
         long low = 1;
         long heigh = sum;
