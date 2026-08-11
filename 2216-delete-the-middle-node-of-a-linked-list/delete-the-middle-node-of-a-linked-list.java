@@ -10,18 +10,27 @@
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
+        if (head.next == null)
+            return null; // this means that out linkedlist only contain the head;;
+        int idx = 0;
+
         ListNode slow = head;
         ListNode fast = head;
-         ListNode   prev = null;
-         if (head == null || head.next == null) {
-            return null; 
-        }
-        while(fast!= null && fast.next != null){
-            prev = slow;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
+            idx++;
         }
-        prev.next = slow.next;
+
+        ListNode temp = head;
+
+        for (int p = 0; p < idx - 1; p++) {
+            temp = temp.next;
+        }
+
+        ListNode forw = slow.next;
+        temp.next = forw;
+        slow.next = null;
         return head;
     }
 }
