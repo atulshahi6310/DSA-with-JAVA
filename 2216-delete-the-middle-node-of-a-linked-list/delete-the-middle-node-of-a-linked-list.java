@@ -13,21 +13,15 @@ class Solution {
         if (head.next == null)
             return null; // this means that out linkedlist only contain the head;;
         int idx = 0;
-
-        ListNode slow = head;
-        ListNode fast = head;
+        ListNode temp = head;
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
         while (fast != null && fast.next != null) {
+            temp = temp.next;
             slow = slow.next;
             fast = fast.next.next;
             idx++;
         }
-
-        ListNode temp = head;
-
-        for (int p = 0; p < idx - 1; p++) {
-            temp = temp.next;
-        }
-
         ListNode forw = slow.next;
         temp.next = forw;
         slow.next = null;
