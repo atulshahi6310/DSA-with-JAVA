@@ -33,7 +33,10 @@ class Solution {
             temp = temp.next;
         }
 
-        temp.next = temp.next.next;
+        ListNode cur = temp.next;
+        ListNode forw = cur.next;
+        temp.next = forw;
+        cur.next = null;
         return head;
     }
 }
