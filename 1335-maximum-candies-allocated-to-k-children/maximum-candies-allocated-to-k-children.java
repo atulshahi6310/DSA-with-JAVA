@@ -8,12 +8,12 @@ class Solution {
     }
     public int maximumCandies(int[] candies, long k) {
         long s =1;
-        long sum =0;
+        long max =0;
         
         for(int n:candies){
-            sum += n;
+            max = Math.max(max,n);
         }
-        long e = sum;
+        long e = max;
         long ans =0;
         while(s<=e){
             long mid = s +(e-s)/2;
