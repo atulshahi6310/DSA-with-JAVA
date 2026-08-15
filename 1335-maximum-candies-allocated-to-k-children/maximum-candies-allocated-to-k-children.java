@@ -3,6 +3,7 @@ class Solution {
         long total_student_get =0;
         for(int candie :candies){
             total_student_get += candie/mid;
+            if(total_student_get >=k) return true;
         }
         return total_student_get >= k;
     }
