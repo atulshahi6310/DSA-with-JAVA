@@ -19,7 +19,8 @@ class Solution {
                 curr = curr.next;
             }
         }
-        temp.next = null; // terminate list, in case last kept node had a stale next
+
+        temp.next = null; 
         return dummy.next;
     }
 }
