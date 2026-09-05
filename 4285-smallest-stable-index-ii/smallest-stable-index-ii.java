@@ -1,0 +1,12 @@
+class Solution {
+    public int firstStableIndex(int[] nums, int k) {
+        int max =0;
+        int cand =0,m =0;
+        for(int  i=0;i<nums.length;i++){
+            m = Math.max(m,nums[i]);
+            if(i==cand) max = m;
+            if(nums[i]<max-k) cand =i+1;
+        }
+        return cand <nums.length?cand:-1;
+    }
+}
