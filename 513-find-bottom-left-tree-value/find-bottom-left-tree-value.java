@@ -14,37 +14,23 @@
  * }
  */
 class Solution {
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> l = new ArrayList<>();
-        if (root == null)
-            return l;
+    public int findBottomLeftValue(TreeNode root) {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
-        q.add(null);
-        List<Integer> ad = new ArrayList<>();
-        while (!q.isEmpty()) {
-            TreeNode curr = q.remove();
-            if (curr == null) {
-                l.add(ad);
-                ad = new ArrayList<>();
-                if (!q.isEmpty()) {
-                    q.add(null);
-                }
-            } else {
-                ad.add(curr.val);
-                if (curr.left != null) {
-                    q.add(curr.left);
-                }
-                if (curr.right != null) {
-                    q.add(curr.right);
-                }
+        TreeNode curr =root;
+         while(!q.isEmpty()){
+            curr = q.poll();
+
+            if(curr.right!=null){
+                q.add(curr.right);
+            }
+
+            if(curr.left != null){
+                q.add(curr.left);
             }
         }
-        return l;
-    }
 
-    public int findBottomLeftValue(TreeNode root) {
-        List<List<Integer>> l =levelOrder(root);
-        return l.get(l.size()-1).get(0);
+        return curr.val;
     }
+    
 }
