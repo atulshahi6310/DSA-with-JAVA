@@ -18,15 +18,16 @@ class Solution {
        List<List<Integer>> ll = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
         List<Integer> l = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
         if(root == null){
-            return l;
+            return ans;
         }
         q.add(root);
         q.add(null);
         while(!q.isEmpty()){
             TreeNode curr = q.remove();
             if(curr == null){
-                ll.add(l);
+                ans.add(l.get(l.size()-1));
                 l = new ArrayList<>();
                 if(!q.isEmpty()){
                     q.add(null);
@@ -41,11 +42,6 @@ class Solution {
                 }
 
             }
-        }
-
-        List<Integer> ans = new ArrayList<>();
-        for(int i =0;i<ll.size();i++){
-            ans.add(ll.get(i).get(ll.get(i).size()-1));
         }
         return ans;
     }
