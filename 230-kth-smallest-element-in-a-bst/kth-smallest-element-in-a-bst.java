@@ -14,7 +14,31 @@
  * }
  */
 class Solution {
-    public void preorder(TreeNode root,ArrayList<Integer> l){
+    public int ans =0;
+    public int count =0;
+    public void preorder(TreeNode root,int k){
+        if(root == null || count >=k ){
+            return;
+        }
+        preorder(root.left,k);
+        count++;
+        if(count == k){
+            ans = root.val;
+            return;
+        }
+        preorder(root.right,k);
+    }
+    public int kthSmallest(TreeNode root, int k) {
+       count =0;
+      preorder(root,k);
+      return ans;
+
+    }
+}
+
+
+/*
+ public void preorder(TreeNode root,ArrayList<Integer> l){
         if(root == null){
             return;
         }
@@ -28,4 +52,4 @@ class Solution {
         Collections.sort(l);
         return l.get(k-1);
     }
-}
+*/
